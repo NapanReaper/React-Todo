@@ -1,9 +1,22 @@
-import React from 'react'
+import { useState } from "react"
 
-const Form = () => {
+const Form = ({ todos, setTodos }) => {
+ const [inputText, setInputText] = useState('')
+ const handleInputChange = (e) => {
+  setInputText(e.target.value)
+ }
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  setTodos([...todos, {
+   text: inputText,
+   completed: false,
+   id: Date.now()
+  }]);
+  setInputText('')
+ }
  return (
-  <form>
-   <input type="text" className='todo-list' />
+  <form onSubmit={handleSubmit}>
+   <input type="text" className='todo-list' value={inputText} onChange={handleInputChange} />
    <button className='todo-button' type='submit'>
     <i className="fas fa-plus-square"></i>
    </button>
