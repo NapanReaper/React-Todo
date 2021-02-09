@@ -1,6 +1,6 @@
 import Todo from "./Todo"
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = ({ todos, setTodos, }) => {
  const handleDelete = (id) => {
   setTodos(todos.filter(todo => todo.id !== id))
  }

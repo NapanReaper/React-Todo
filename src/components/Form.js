@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const Form = ({ todos, setTodos }) => {
+const Form = ({ todos, setTodos, setFilterValue }) => {
  const [inputText, setInputText] = useState('')
  const handleInputChange = (e) => {
   setInputText(e.target.value)
@@ -21,7 +21,7 @@ const Form = ({ todos, setTodos }) => {
     <i className="fas fa-plus-square"></i>
    </button>
    <div className="select">
-    <select name="todos" className="filter-todo">
+    <select name="todos" className="filter-todo" onChange={(e) => setFilterValue(e.target.value)}>
      <option value="all">All</option>
      <option value="completed">Completed</option>
      <option value="uncompleted">Uncompleted</option>
